@@ -32,6 +32,13 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* --- ADD THIS NEW BLOCK --- */
+        html {
+            scroll-behavior: smooth; /* Makes the scrolling look like a smooth glide */
+            scroll-padding-top: 120px; /* Stops the header from covering section titles */
+        }
+        /* ------------------------- */
+
         body {
             line-height: 1.6;
             color: var(--text-dark);
@@ -42,10 +49,11 @@
         header {
             background-color: #fff;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: fixed;
+            position: absolute;
             width: 100%;
             top: 0;
             z-index: 1000;
+            margin-bottom: 100px;
         }
 
         nav {
@@ -104,9 +112,35 @@
             gap: 2rem;
         }
 
+       /* --- SLIDE UP ANIMATION --- */
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
         .hero-content { flex: 1; }
-        .hero-content h2 { text-align: left; font-size: 3rem; margin-bottom: 1rem; }
-        .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; }
+        
+        .hero-content h2 { 
+            text-align: left; 
+            font-size: 3rem; 
+            margin-bottom: 1rem; 
+            /* Animates the title immediately */
+            animation: fadeInUp 0.8s ease-out forwards; 
+        }
+        
+        .hero-content p { 
+            font-size: 1.2rem; 
+            margin-bottom: 2rem; 
+            opacity: 0; /* Starts hidden */
+            /* Animates paragraph slightly after the title */
+            animation: fadeInUp 0.8s ease-out 0.3s forwards; 
+        }
+
+        .hero-content .btn {
+            opacity: 0; /* Starts hidden */
+            /* Animates the button last */
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
 
         .btn {
             display: inline-block;
@@ -319,6 +353,7 @@
             color: var(--primary-color);
             transform: translateY(-5px);
         }
+        
 
         /* Floating WhatsApp Button */
         .whatsapp-float {
@@ -341,12 +376,18 @@
 
         .whatsapp-float:hover { transform: translateY(-5px); }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            #home { flex-direction: column; text-align: center; padding-top: 8rem; }
-            .hero-content h2 { text-align: center; }
+       /* Responsive Breakpoints */
+        @media (max-width: 900px) {
+            /* Increased padding-top from 150px to 220px to push the text below the mobile menu */
+            body { padding-top: 120px; } 
+            
+            #home { flex-direction: column; text-align: center; gap: 2rem; }
+            .hero-content h2 { text-align: center; font-size: 2.5rem; }
             nav { flex-direction: column; gap: 1rem; }
-            .contact-container { flex-direction: column; }
+            .contact-layout { flex-direction: column; gap: 2rem; }
+            
+            /* Center the logo and text on mobile */
+            .logo-link { flex-direction: column; text-align: center; gap: 10px; }
         }
     </style>
 </head>
