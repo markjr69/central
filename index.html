@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central School of Allied Health Sciences</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary-color: #7b1113; /* Deep Maroon */
+            --secondary-color: #2c3e50;
+            --accent-color: #25D366; /* WhatsApp Green */
+            --bg-light: #f8f9fa;
+            --text-dark: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        /* Navigation */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .logo-link img {
+            height: 50px;
+            display: block;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 5% 4rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+        }
+
+        /* Hero / Home Page */
+        #home {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            gap: 2rem;
+        }
+
+        .hero-content { flex: 1; }
+        .hero-content h2 { text-align: left; font-size: 3rem; margin-bottom: 1rem; }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover { background: #5a0c0e; }
+
+        .hero-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .hero-image img { width: 100%; height: auto; display: block; }
+
+        /* Courses Page */
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .course-card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-grid img:hover { transform: scale(1.03); }
+
+        /* Admissions & Forms */
+        .admissions-content {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .intake-tags {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .application-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: left;
+        }
+
+        .application-form input, .application-form select, .application-form textarea {
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        /* Tuition / Payments */
+        .payment-info {
+            background: #eef2f5;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary-color);
+            margin-top: 2rem;
+        }
+
+        /* Testimonials Update */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+
+        .testimonial-img {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+        }
+
+        .student-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .student-name {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .student-course {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Contact Page */
+        .contact-container {
+            display: flex;
+            gap: 2rem;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-info { flex: 1; }
+        .contact-info ul { list-style: none; }
+        .contact-info li { margin-bottom: 1rem; font-size: 1.1rem; }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        .social-links {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--accent-color);
+            color: #fff;
+            border-radius: 50px;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover { transform: translateY(-5px); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #home { flex-direction: column; text-align: center; padding-top: 8rem; }
+            .hero-content h2 { text-align: center; }
+            nav { flex-direction: column; gap: 1rem; }
+            .contact-container { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+       <nav>
+            <a href="#home" class="logo-link" style="display: flex; align-items: center; gap: 15px; text-decoration: none;">
+                
+                <!-- Made Bigger, Perfectly Round, and added a border -->
+                <img src="photo_5891012963680849346_w.jpg" alt="Logo" style="width: 85px; height: 85px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-color); background-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1);" onerror="this.style.display='none'">
+                
+                <!-- The Text Title -->
+                <h1 style="color: var(--primary-color); font-size: 1.3rem; text-transform: uppercase; margin: 0; font-weight: 800; max-width: 350px; line-height: 1.2;">
+                    Central School of Allied Health Sciences
+                </h1>
+            </a>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#gallery">Campus Life</a></li>
+                <li><a href="#admissions">Admissions</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="hero-content">
+            <h2>Shaping a Healthy Tomorrow</h2>
+            <p>Fully registered and licensed by MOES & AHPC. Join us for hands-on learning, a conducive environment, and highly trained tutors to kickstart your medical career.</p>
+            <a href="#admissions" class="btn">Apply Now</a>
+        </div>
+        <div class="hero-image">
+            <img src="photo_5891012963680849347_y.jpg" alt="Students in Laboratory">
+        </div>
+    </section>
+
+    <section id="courses">
+        <h2>Our Courses</h2>
+        
+        <h3 style="margin-bottom: 1rem; color: var(--secondary-color);">Certificate Courses (2 Years)</h3>
+        <div class="course-grid">
+            <div class="course-card">
+                <h3>Pharmacy</h3>
+                <div class="price">1,000,000/= per sem</div>
+                <p><strong>Entry:</strong> O'Level with at least 5 passes in MTC, ENG, BIO, CHEM, or PHY.</p>
+            </div>
+            <div class="course-card">
+                <h3>Laboratory Technician</h3>
+                <div class="price">1,000,000/= per sem</div>
+                <p><strong>Entry:</strong> O'Level with at least 5 passes in MTC, ENG, BIO, CHEM, or PHY.</p>
+            </div>
+            <div class="course-card">
+                <h3>Medical Records</h3>
+                <div class="price">600,000/= per sem</div>
+                <p><strong>Entry:</strong> O'Level with at least 5 passes in MTC, ENG, BIO, CHEM, or PHY.</p>
+            </div>
+            <div class="course-card">
+                <h3>Public Health</h3>
+                <div class="price">600,000/= per sem</div>
+                <p><strong>Entry:</strong> O'Level with at least 5 passes in MTC, ENG, BIO, CHEM, or PHY.</p>
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 1rem; color: var(--secondary-color);">Diploma Courses (2-3 Years)</h3>
+        <div class="course-grid">
+            <div class="course-card">
+                <h3>Pharmacy (3 Years)</h3>
+                <div class="price">1,200,000/= per sem</div>
+                <p><strong>Entry:</strong> A'Level with at least 1 Principal Pass & 1 Subsidiary in PCB/M.</p>
+            </div>
+            <div class="course-card">
+                <h3>Clinical Medicine & Community Health (3 Years)</h3>
+                <div class="price">1,200,000/= per sem</div>
+                <p><strong>Entry:</strong> A'Level with at least 1 Principal Pass & 1 Subsidiary in PCB/M.</p>
+            </div>
+            <div class="course-card">
+                <h3>Medical Records (3 Years)</h3>
+                <div class="price">600,000/= per sem</div>
+                <p><strong>Entry:</strong> A'Level with at least 1 Principal pass in any best done subject.</p>
+            </div>
+            <div class="course-card">
+                <h3>Public Health (2 Years)</h3>
+                <div class="price">600,000/= per sem</div>
+                <p><strong>Entry:</strong> A'Level with at least 1 Principal pass in any best done subject.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" style="background-color: #fff;">
+        <h2>Campus Life & Facilities</h2>
+        <p style="text-align: center; margin-bottom: 2rem;">Experience our fully stocked library, modern labs, and hands-on learning environment.</p>
+        <div class="gallery-grid">
+            <img src="photo_5891012963680849366_x (1).jpg" alt="Science Laboratory" onerror="this.src='https://via.placeholder.com/400x250?text=Lab+Photo'">
+            <img src="photo_5891012963680849348_x.jpg" alt="School Library" onerror="this.src='https://via.placeholder.com/400x250?text=Library+Photo'">
+            <img src="new.jpg" alt="Students Learning" onerror="this.src='https://via.placeholder.com/400x250?text=Students+Photo'">
+             <img src="photo_5891012963680849367_x (1).jpg" alt="Students Learning" onerror="this.src='https://via.placeholder.com/400x250?text=Students+Photo'">
+        </div>
+    </section>
+
+    <section id="admissions">
+        <h2>Admissions & Application</h2>
+        
+        <div class="admissions-content">
+            <div class="intake-tags">
+                <span class="tag">JAN - FEB INTAKE</span>
+                <span class="tag">MAY - JUNE INTAKE</span>
+                <span class="tag">AUG - SEP INTAKE</span>
+            </div>
+            <p style="margin: 1.5rem 0; color: var(--primary-color); font-weight: bold; font-size: 1.2rem;">BURSARIES ARE AVAILABLE</p>
+
+            <hr style="margin: 2rem 0; border: 0; border-top: 1px solid #eee;">
+
+            <h3 style="margin-bottom: 1.5rem; color: var(--secondary-color);">Apply Online Now</h3>
+            
+            <form class="application-form" action="https://formspree.io/f/mbdvraqd" method="POST">
+                <input type="text" name="name" placeholder="Applicant's Full Name" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+                <input type="email" name="email" placeholder="Email Address (Optional)">
+                <select name="course" required>
+                    <option value="" disabled selected>Select Course of Interest...</option>
+                    <option value="cert_pharmacy">Certificate in Pharmacy</option>
+                    <option value="cert_lab">Certificate in Laboratory Technician</option>
+                    <option value="cert_records">Certificate in Medical Records</option>
+                    <option value="cert_public">Certificate in Public Health</option>
+                    <option value="dip_pharmacy">Diploma in Pharmacy</option>
+                    <option value="dip_clinical">Diploma in Clinical Med & Community Health</option>
+                    <option value="dip_records">Diploma in Medical Records</option>
+                    <option value="dip_public">Diploma in Public Health</option>
+                </select>
+                <textarea name="message" placeholder="Do you have any questions regarding admission requirements or bursaries?" rows="4"></textarea>
+                <button type="submit" class="btn">Submit Application Inquiry</button>
+            </form>
+        </div>
+
+        <div class="payment-info" id="payment">
+            <h3 style="color: var(--secondary-color); margin-bottom: 1rem;"><i class="fas fa-wallet"></i> Fee Payment & Tuition Guide</h3>
+            <p>Application fees and tuition are payable in installments to ease the burden on parents. We support multiple secure payment avenues.</p>
+            <ul style="margin-top: 1rem; list-style-position: inside;">
+                <li><strong>Bank Deposits:</strong> Please contact administration for official account numbers.</li>
+                <li><strong>Mobile Money / SchoolPay:</strong> Airtel *185*6*2#  OR  MTN *165*4*3*2# </li>
+
+                <p><em>Note: Avoid paying cash to individuals, all cash is banked on above payment methods</em></p>
+            </ul>
+        </div>
+    </section>
+
+    <section id="testimonials" style="background-color: #fff;">
+        <h2>What Our Students Say</h2>
+        <div class="testimonial-grid">
+            
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <img src="photo_5891012963680849354_x.jpg" alt="Graduate" class="testimonial-img" onerror="this.src='https://via.placeholder.com/75x75?text=Photo'">
+                    <div class="student-info">
+                        <span class="student-name">Sarah M.</span>
+                        <span class="student-course">Graduate, Clinical Medicine</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">"The hands-on learning and access to modern lab equipment prepared me perfectly for my clinical placements. The tutors are incredibly supportive and genuinely care about our success."</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <img src="photo_5891012963680849352_x.jpg" alt="Current Student" class="testimonial-img" onerror="this.src='https://via.placeholder.com/75x75?text=Photo'">
+                    <div class="student-info">
+                        <span class="student-name">David K.</span>
+                        <span class="student-course">Student, Diploma in Pharmacy</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">"Securing a bursary changed everything for me. The school's installment payment plans made it possible for me to pursue my career in Pharmacy without overwhelming financial stress."</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Visit or Call Us</h3>
+                <p style="margin-bottom: 1.5rem;">Our administration office is open Monday through Friday for inquiries, tours, and registration.</p>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt" style="color: var(--primary-color); width: 25px;"></i> <strong>Location:</strong> Wakiso, Mende</li>
+                    <li><i class="fas fa-phone-alt" style="color: var(--primary-color); width: 25px;"></i> <strong>Line 1:</strong> <a href="tel:0791264547" style="color: var(--text-dark); text-decoration: none;">0791264547</a></li>
+                    <li><i class="fas fa-phone-alt" style="color: var(--primary-color); width: 25px;"></i> <strong>Line 2:</strong> <a href="tel:0785546219" style="color: var(--text-dark); text-decoration: none;">0751952461</a></li>
+                    <li><i class="fas fa-envelope" style="color: var(--primary-color); width: 25px;"></i> <strong>Examining Body:</strong> UAHEB</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p>&copy; 2026 Central School of Allied Health Sciences. Fully registered and licensed by MOES & AHPC.</p>
+    </footer>
+
+    <a href="https://wa.me/256785546219" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i> Chat on WhatsApp
+    </a>
+
+</body>
+</html>
